@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head
+>
+<body>
+     <h1>Cadastro de filmes</h1>   
+    <form method="POST" action="http://localhost:3000/filmes">
+        <label for="nome">Nome</label><br>
+        <input type="text" id="nome" name="nome"><br>
+        <label for="genero">Gênero</label><br>
+        <input type="text" id="genero" name="genero"><br>
+        <label for="sinopse">Sinopse</label><br>
+        <textarea id='sinopse' name='sinopse'> </textarea><br>
+       <label for="data">Data de Lançamento</label><br>
+       <input type="date" id="data" name= "data"><br><br>
+       <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+//primeiro passo: npm init
+
+console.log('isso funciona')
+
+const express= require('express');
+const app= express();
+//sempre que colocamos um app.use estamos incluindo um middleware
+//pois todas as requisições que chegam 
+app.use(express.urlencoded({
+    extended: true
+})) //parser de formulário
+
+//app.use(express.json) parser de requisições
+app.use(express.static('public'));
+
+app.use("*", (req, res, next) =>{ 
+//é um middleware, uma função que executa entre o request e o endpoint final
+//permitindo que seja verificado/incluido/testado  qualquer código antes de chamar o next
+    console.log(`Request recebido para ${req.baseUrl} às ${new Date()}` );
+    //para deixar o sistema mais lento poderiamos usar o setTimeOut com o next()
+    next();
+})
+
+app.get('/', (req, res)=>{
+    res.redirect('/filmes') //está redirecionando pra página de filmes
+})
+
+const filmesRoutes = require('./routes/filmes-routes');
+
+
+app.use('/filmes', filmesRoutes)
+
+app.use("*", (req, res, next)=>{
+   //vem por último para caso não encontremos nenhuma página
+   res.redirect('/teste.html')
+   // res.status(404).send(`<h1>Sorry, not found!</h1>`)
+})
+
+
+
+app.listen(3000, ()=>{
+    console.log('Servidor iniciado na porta 3000')
+})
+
