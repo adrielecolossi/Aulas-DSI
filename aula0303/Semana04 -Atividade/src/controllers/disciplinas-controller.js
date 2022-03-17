@@ -10,7 +10,7 @@ class DisciplinasController {
         }
     
         async excluir(req, res){
-              const reqExcluir = req.body.idExcluir
+              const reqExcluir = req.params.id
 
               let indexExcluir;
                for (let i2 = 0; i2 < disciplinas.length; i2++) {
@@ -23,7 +23,7 @@ class DisciplinasController {
              console.log(indexExcluir)
 
             disciplinas.splice(indexExcluir, 1)
-              res.send('excluido');
+            res.redirect('/disciplinas')
         }
 
     async detalhar(req, res){

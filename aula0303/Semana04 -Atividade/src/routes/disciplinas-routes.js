@@ -10,7 +10,7 @@ routes.get('/', disciplinasController.listar)
 
 
 routes.get('/:id', disciplinasController.detalhar)
-routes.post('/excluir', disciplinasController.excluir)
+routes.post('/excluir/:id', disciplinasController.excluir)
 routes.post('/', disciplinasController.cadastrar)
 
  

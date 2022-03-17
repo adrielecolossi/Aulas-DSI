@@ -9,7 +9,7 @@
 <body>
   
          <h1>Disciplina: <%= disciplina.nome %></h1>
-         <form method="POST" action='http://localhost:3000/disciplinas/excluir'>
+         <form method="POST" action='http://localhost:3000/disciplinas/excluir/<%=disciplina.id%>'>
             <input id="inputExcluir" name='idExcluir' type='text' id="idExcluir" value=<%= disciplina.id %>>
              <input type="submit" value="Excluir"> 
          </form>
